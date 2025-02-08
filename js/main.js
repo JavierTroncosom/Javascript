@@ -75,3 +75,71 @@ function ConversorDivisas() {
     alert("Gracias por usar el simulador de cambio de divisas. ¡Hasta pronto!");
     console.log("Salió del programa");
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    let selectElement = document.getElementById('opciones1');
+
+    if (selectElement) { // 👈 Verifica que el elemento existe antes de usarlo
+        selectElement.addEventListener('change', function() {
+            var imagenSeleccionada = this.value;
+            var card = document.getElementById('card1')
+            console.log(selectElement.value);
+            switch (imagenSeleccionada) {
+                case 'DOLAR':
+                  card.style.backgroundImage = 'url("./assets/Dolar.jpeg")';
+                  break;
+                case 'EURO':
+                  card.style.backgroundImage = 'url("./assets/Euro.jpg")';
+                  break;
+                case 'YEN':
+                  card.style.backgroundImage = 'url("./assets/Yen.jpg")';
+                  break;
+                  case 'LIBRA':
+                  card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
+                  break;
+                  case 'DOLARC':
+                  card.style.backgroundImage = 'url("./assets/Canada.jpg")';
+                  break;
+                default:
+                  card.style.backgroundImage = 'none';
+                  break;
+             }
+        });
+    } else {
+        console.error("El elemento con ID 'opciones1' no existe.");
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    let selectElement = document.getElementById('opciones2');
+
+    if (selectElement) { // 👈 Verifica que el elemento existe antes de usarlo
+        selectElement.addEventListener('change', function() {
+            var imagenSeleccionada = this.value;
+            var card = document.getElementById('card')
+            console.log(selectElement.value);
+            switch (imagenSeleccionada) {
+                case 'DOLAR':
+                  card.style.backgroundImage = 'url("./assets/Dolar.jpeg")';
+                  break;
+                case 'EURO':
+                  card.style.backgroundImage = 'url("./assets/Euro.jpg")';
+                  break;
+                case 'YEN':
+                  card.style.backgroundImage = 'url("./assets/Yen.jpg")';
+                  break;
+                  case 'LIBRA':
+                  card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
+                  break;
+                  case 'DOLARC':
+                  card.style.backgroundImage = 'url("./assets/Canada.jpg")';
+                  break;
+                default:
+                  card.style.backgroundImage = 'none';
+                  break;
+             }
+        });
+    } else {
+        console.error("El elemento con ID 'opciones1' no existe.");
+    }
+});
