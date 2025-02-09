@@ -26,7 +26,7 @@
                     <b>GBP</b>: Libra esterlina<br>
                     <b>CAD</b>: Dólar canadiense
                 </p>
-                <button class="btn btn-success">Iniciar Conversión</button>
+                <button class="btn btn-success" onclick="ConversorDivisas()">Iniciar Conversión</button>
             </center>
         </div>
     </div>
@@ -39,17 +39,17 @@
                         <h5 class="card-title">MONEDA DE ORIGEN</h5>  
                         <!-- Select dentro de la Card -->
                         <div class="mb-3">
-                            <label for="opciones" class="form-label">Selecciona una opción:</label>
+                            <label for="opciones" class="label">Selecciona una opción:</label>
                             <select class="form-select" id="opciones1">
-                                <option value="DOLAR">Dolar estadounidense (USD)</option>
-                                <option value="EURO"> Euro (EUR)</option>
-                                <option value="YEN">Yen japonés (JPY)</option>
-                                <option value="LIBRA">Libra esterlina (GBP)</option>
-                                <option value="DOLARC"> Dólar canadiense (CAD)</option>
+                                <option value="USD">Dolar estadounidense (USD)</option>
+                                <option value="EUR"> Euro (EUR)</option>
+                                <option value="JPY">Yen japonés (JPY)</option>
+                                <option value="GBP">Libra esterlina (GBP)</option>
+                                <option value="CAD"> Dólar canadiense (CAD)</option>
                             </select>
+                            <hr>
+                            <input type="number" class="input-number" id="origen" placeholder="Inserte la cantidad sin comas ni puntos" />
                         </div>
-    
-                        <a href="#" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
             </div>
@@ -62,17 +62,17 @@
                         
                         <!-- Select dentro de la Card -->
                         <div class="mb-3">
-                            <label for="opciones" class="form-label">Selecciona una opción:</label>
+                            <label for="opciones" class="label">Selecciona una opción:</label>
                             <select class="form-select" id="opciones2">
-                                <option value="DOLAR">Dolar estadounidense (USD)</option>
-                                <option value="EURO"> Euro (EUR)</option>
-                                <option value="YEN">Yen japonés (JPY)</option>
-                                <option value="LIBRA">Libra esterlina (GBP)</option>
-                                <option value="DOLARC"> Dólar canadiense (CAD)</option>
+                                <option value="USD">Dolar estadounidense (USD)</option>
+                                <option value="EUR"> Euro (EUR)</option>
+                                <option value="JPY">Yen japonés (JPY)</option>
+                                <option value="GBP">Libra esterlina (GBP)</option>
+                                <option value="CAD"> Dólar canadiense (CAD)</option>
                             </select>
+                            <hr>
+                            <input type="number" class="input-number" id="destino" placeholder="Inserte la cantidad sin comas ni puntos" />
                         </div>
-    
-                        <a href="#" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
             </div>

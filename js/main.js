@@ -13,67 +13,31 @@ const TasasdeConversion = {
 //GBP: Libra esterlina.
 //CAD: Dólar canadiense.
 function ConversorDivisas() {
-    console.log("Se ingreso al programa");
     alert("¡Bienvenido al simulador de cambio de divisas!");
-
-    let continueConversion = true;
-
-    while (continueConversion) {
+    let selectElement = document.getElementById('opciones1');
+    let selectElement2= document.getElementById('opciones2');
+    let MonedaOriginal = document.getElementById('origen');
+    let MonedaDestinoOriginal = document.getElementById('destino');
         // Solicitar el monto a convertir
-        const cantidad = parseFloat(prompt("Ingresa el monto a convertir :")); // ParseFloat para obtener solo números de la cadena ingresada
-        if (isNaN(cantidad) || cantidad <= 0) { //Para recibir solo números si se escribe "$", no lo recibe como cadena valida de números
-            alert("Por favor, ingresa un monto válido.");
-            continue; // Volver al inicio del ciclo si el monto no es válido
-        }
+        const cantidad = parseFloat(MonedaOriginal.value);
         console.log("La cantidad ingresada es "+cantidad)
         // Solicitar la moneda de origen
-        const MonedaOrigen = prompt(
-            "Ingresa la moneda de origen (USD, EUR, MXN, JPY, GBP, CAD):"
-        ).toUpperCase();
-        if (!TasasdeConversion[MonedaOrigen]) {
-            alert("La moneda de origen no es válida. Intenta de nuevo.");
-            continue;
-        }
-        console.log("La moneda de origen  es "+MonedaOrigen)
+        const MonedaOrigen = selectElement.value;
 
         // Solicitar la moneda de destino
-        const MonedaDestino = prompt(
-            "Ingresa la moneda de destino (USD, EUR, MXN):"
-        ).toUpperCase();
-        if (!TasasdeConversion[MonedaDestino]) {
-            alert("La moneda de destino no es válida. Intenta de nuevo.");
-            continue;
-        }
-        console.log("La moneda de destino es "+MonedaDestino)
+        const MonedaDestino = selectElement2.value;
 
-        // Confirmar la operación
-        const confirmConversion = confirm(
-            `¿Quieres convertir ${cantidad} ${MonedaOrigen} a ${MonedaDestino}?`
-        );
-        if (!confirmConversion) {
-            alert("Operación cancelada.");
-            continue; // Volver al inicio del ciclo
-        }
 
         // Calcular el resultado de la conversión
         const rate = TasasdeConversion[MonedaOrigen][MonedaDestino];
         const cantidadConvertida = (cantidad * rate).toFixed(2);
-        console.log("La cantidad ya convertida es " + cantidadConvertida)
+        console.log("La cantidad ya convertida es " + cantidadConvertida);
+        MonedaDestinoOriginal.value=cantidadConvertida;
 
         // Mostrar el resultado
         alert(
             `El monto convertido es: ${cantidadConvertida} ${MonedaDestino}.\nGracias por usar el simulador.`
         );
-
-        // Preguntar si el usuario desea realizar otra conversión
-        continueConversion = confirm(
-            "¿Deseas realizar otra conversión?\nPresiona 'Aceptar' para continuar o 'Cancelar' para salir."
-        );
-    }
-
-    // Mensaje de despedida
-    alert("Gracias por usar el simulador de cambio de divisas. ¡Hasta pronto!");
-    console.log("Salió del programa");
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -85,24 +49,24 @@ document.addEventListener('DOMContentLoaded', function() {
             var card = document.getElementById('card1')
             console.log(selectElement.value);
             switch (imagenSeleccionada) {
-                case 'DOLAR':
-                  card.style.backgroundImage = 'url("./assets/Dolar.jpeg")';
-                  break;
-                case 'EURO':
-                  card.style.backgroundImage = 'url("./assets/Euro.jpg")';
-                  break;
-                case 'YEN':
-                  card.style.backgroundImage = 'url("./assets/Yen.jpg")';
-                  break;
-                  case 'LIBRA':
-                  card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
-                  break;
-                  case 'DOLARC':
-                  card.style.backgroundImage = 'url("./assets/Canada.jpg")';
-                  break;
-                default:
-                  card.style.backgroundImage = 'none';
-                  break;
+              case 'USD':
+                card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
+                break;
+              case 'EUR':
+                card.style.backgroundImage = 'url("./assets/Euro.jpg")';
+                break;
+              case 'JPY':
+                card.style.backgroundImage = 'url("./assets/Yen.jpg")';
+                break;
+                case 'GBP':
+                card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
+                break;
+                case 'CAD':
+                card.style.backgroundImage = 'url("./assets/Canada.jpg")';
+                break;
+              default:
+                card.style.backgroundImage = 'none';
+                break;
              }
         });
     } else {
@@ -119,23 +83,23 @@ document.addEventListener('DOMContentLoaded', function() {
             var card = document.getElementById('card')
             console.log(selectElement.value);
             switch (imagenSeleccionada) {
-                case 'DOLAR':
-                  card.style.backgroundImage = 'url("./assets/Dolar.jpeg")';
+                case 'USD':
+                  card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
                   break;
-                case 'EURO':
+                case 'EUR':
                   card.style.backgroundImage = 'url("./assets/Euro.jpg")';
                   break;
-                case 'YEN':
+                case 'JPY':
                   card.style.backgroundImage = 'url("./assets/Yen.jpg")';
                   break;
-                  case 'LIBRA':
+                  case 'GBP':
                   card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
                   break;
-                  case 'DOLARC':
+                  case 'CAD':
                   card.style.backgroundImage = 'url("./assets/Canada.jpg")';
                   break;
                 default:
-                  card.style.backgroundImage = 'none';
+                  card.style.backgroundImage = 'url("./assets/Divisa.jpeg")';
                   break;
              }
         });

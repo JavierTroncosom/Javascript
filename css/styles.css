@@ -63,3 +63,40 @@ p {
     height: 300px;
     border: 1px solid #ccc;
 }
+
+#card1,#card{
+    background-image: url('../assets/D.jpg');  
+}
+
+.input-number {
+    width: 100%;
+    max-width: auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-number:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
+}
+
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../assets/Fonts/Bebas_Neue/BebasNeue-Regular.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+h5{
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+}
+
+.label{
+    font-family: 'Bebas Neue';
+    font-size: 30px;
+}
