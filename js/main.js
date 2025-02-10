@@ -15,6 +15,13 @@ const TasasdeConversion = {
 function ConversorDivisas() {
     let selectElement = document.getElementById('opciones1');
     let selectElement2= document.getElementById('opciones2');
+    const mensajeError2 = document.getElementById("mensajeError2");
+    if(selectElement2.value != "1"){
+      mensajeError2.style.display = "none"; // Ocultar el mensaje de error
+    }
+    else{
+      mensajeError2.style.display = "block"; 
+    }
     let MonedaOriginal = document.getElementById('origen');
     let MonedaDestinoOriginal = document.getElementById('destino');
     const mensajeError = document.getElementById("mensajeError");
