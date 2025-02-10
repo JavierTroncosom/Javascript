@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 card.style.backgroundImage = 'url("./assets/Canada.jpg")';
                 break;
               default:
-                card.style.backgroundImage = 'none';
+                card.style.backgroundImage = 'url("./assets/p2.jpeg")';
                 break;
              }
         });
