@@ -13,16 +13,21 @@ const TasasdeConversion = {
 //GBP: Libra esterlina.
 //CAD: Dólar canadiense.
 function ConversorDivisas() {
-    alert("¡Bienvenido al simulador de cambio de divisas!");
     let selectElement = document.getElementById('opciones1');
     let selectElement2= document.getElementById('opciones2');
     let MonedaOriginal = document.getElementById('origen');
     let MonedaDestinoOriginal = document.getElementById('destino');
+    const mensajeError = document.getElementById("mensajeError");
+    if(selectElement.value != "1"){
+        mensajeError.style.display = "none"; // Ocultar el mensaje de error
         // Solicitar el monto a convertir
         const cantidad = parseFloat(MonedaOriginal.value);
         console.log("La cantidad ingresada es "+cantidad)
         // Solicitar la moneda de origen
         const MonedaOrigen = selectElement.value;
+
+        //Almacenar preferencias en el local storage
+        localStorage.setItem("Moneda",MonedaOrigen);
 
         // Solicitar la moneda de destino
         const MonedaDestino = selectElement2.value;
@@ -33,17 +38,21 @@ function ConversorDivisas() {
         const cantidadConvertida = (cantidad * rate).toFixed(2);
         console.log("La cantidad ya convertida es " + cantidadConvertida);
         MonedaDestinoOriginal.value=cantidadConvertida;
-
-        // Mostrar el resultado
-        alert(
-            `El monto convertido es: ${cantidadConvertida} ${MonedaDestino}.\nGracias por usar el simulador.`
-        );
+    }
+    else{
+      alert("Por favor ingrese una opción valida");
+      mensajeError.style.display = "block"; // Mostrar el mensaje de error
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     let selectElement = document.getElementById('opciones1');
 
     if (selectElement) { // 👈 Verifica que el elemento existe antes de usarlo
+      //Si ya habia elegido una Moneda de Origen antes la carga como predefinida
+      if (localStorage.getItem("Moneda") !== null) {
+      selectElement.value = localStorage.getItem("Moneda");
+      }
         selectElement.addEventListener('change', function() {
             var imagenSeleccionada = this.value;
             var card = document.getElementById('card1')
@@ -51,21 +60,33 @@ document.addEventListener('DOMContentLoaded', function() {
             switch (imagenSeleccionada) {
               case 'USD':
                 card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
+                mensajeError.style.display = "none"; // Ocultar el mensaje de error
                 break;
               case 'EUR':
                 card.style.backgroundImage = 'url("./assets/Euro.jpg")';
+                mensajeError.style.display = "none"; // Ocultar el mensaje de error
                 break;
               case 'JPY':
                 card.style.backgroundImage = 'url("./assets/Yen.jpg")';
+                mensajeError.style.display = "none"; // Ocultar el mensaje de error
                 break;
                 case 'GBP':
                 card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
+                mensajeError.style.display = "none"; // Ocultar el mensaje de error
                 break;
                 case 'CAD':
                 card.style.backgroundImage = 'url("./assets/Canada.jpg")';
+                mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                break;
+                case 'MXN':
+                card.style.backgroundImage = 'url("./assets/Peso.jpeg")';
+                mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                break;
+                case '1':
+                card.style.backgroundImage = 'url("./assets/D.jpg")';
                 break;
               default:
-                card.style.backgroundImage = 'url("./assets/p2.jpeg")';
+                card.style.backgroundImage = 'url("./assets/D.jpeg")';
                 break;
              }
         });
@@ -85,21 +106,34 @@ document.addEventListener('DOMContentLoaded', function() {
             switch (imagenSeleccionada) {
                 case 'USD':
                   card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
+                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
                   break;
                 case 'EUR':
                   card.style.backgroundImage = 'url("./assets/Euro.jpg")';
+                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
                   break;
                 case 'JPY':
                   card.style.backgroundImage = 'url("./assets/Yen.jpg")';
+                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
                   break;
                   case 'GBP':
                   card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
+                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
                   break;
                   case 'CAD':
                   card.style.backgroundImage = 'url("./assets/Canada.jpg")';
+                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  break;
+                  case 'MXN':
+                  card.style.backgroundImage = 'url("./assets/Peso.jpeg")';
+                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  break;
+                  case '1':
+                    card.style.backgroundImage = 'url("./assets/D.jpg")';
+                    mensajeError.style.display = "none"; // Ocultar el mensaje de error
                   break;
                 default:
-                  card.style.backgroundImage = 'url("./assets/Divisa.jpeg")';
+                  card.style.backgroundImage = 'url("./assets/D.jpeg")';
                   break;
              }
         });
@@ -107,3 +141,36 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("El elemento con ID 'opciones1' no existe.");
     }
 });
+
+function VerificarCambio(){
+  let selectElement = document.getElementById('opciones1');
+  var imagenSeleccionada = selectElement.value;
+  var card = document.getElementById('card1'); 
+  if (localStorage.getItem("Moneda") !== null) {
+    switch (imagenSeleccionada) {
+      case 'USD':
+        card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
+        break;
+      case 'EUR':
+        card.style.backgroundImage = 'url("./assets/Euro.jpg")';
+        break;
+      case 'JPY':
+        card.style.backgroundImage = 'url("./assets/Yen.jpg")';
+        break;
+        case 'GBP':
+        card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
+        break;
+        case 'CAD':
+        card.style.backgroundImage = 'url("./assets/Canada.jpg")';
+        break;
+        case 'MXN':
+        card.style.backgroundImage = 'url("./assets/Peso.jpeg")';
+        break;
+      default:
+        card.style.backgroundImage = 'url("./assets/D.jpg")';
+        break;
+   }
+  }
+}
+
+setInterval(VerificarCambio, 500);

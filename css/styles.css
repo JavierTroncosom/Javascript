@@ -99,3 +99,9 @@ h5{
     font-family: 'Bebas Neue';
     font-size: 30px;
 }
+
+.error {
+    color: red;
+    font-size: 14px;
+    display: none; /* Oculto por defecto */
+}

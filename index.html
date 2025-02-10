@@ -49,13 +49,16 @@
                         <div class="mb-3">
                             <label for="opciones" class="label">Selecciona una opción:</label>
                             <select class="form-select" id="opciones1">
+                                <option value="1">Seleccione una opcion</option>
                                 <option value="USD">Dolar estadounidense (USD)</option>
+                                <option value="MXN">Peso Mexicano (MEX)</option>
                                 <option value="EUR"> Euro (EUR)</option>
                                 <option value="JPY">Yen japonés (JPY)</option>
                                 <option value="GBP">Libra esterlina (GBP)</option>
                                 <option value="CAD"> Dólar canadiense (CAD)</option>
                             </select>
                             <hr>
+                            <p id="mensajeError" class="error">⚠ Debes seleccionar una opción válida.</p>
                             <input type="number" class="input-number" id="origen" placeholder="Inserte la cantidad sin comas ni puntos" />
                         </div>
                     </div>
@@ -72,14 +75,16 @@
                         <div class="mb-3">
                             <label for="opciones" class="label">Selecciona una opción:</label>
                             <select class="form-select" id="opciones2">
+                                <option value="1">Seleccione una opcion</option>
                                 <option value="USD">Dolar estadounidense (USD)</option>
+                                <option value="MXN">Peso Mexicano (MEX)</option>
                                 <option value="EUR"> Euro (EUR)</option>
                                 <option value="JPY">Yen japonés (JPY)</option>
                                 <option value="GBP">Libra esterlina (GBP)</option>
                                 <option value="CAD"> Dólar canadiense (CAD)</option>
                             </select>
                             <hr>
-                            <input type="number" class="input-number" id="destino" placeholder="Inserte la cantidad sin comas ni puntos" />
+                            <input type="number" class="input-number" id="destino" placeholder="Despues de la conversion aqui vera el resultado" />
                         </div>
                     </div>
                 </div>
