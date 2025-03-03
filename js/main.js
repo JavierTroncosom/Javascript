@@ -25,6 +25,7 @@ function ConversorDivisas() {
       selectElement2.classList.add("error-select");  
     }
     let MonedaOriginal = document.getElementById('origen');
+    validarInput(MonedaOriginal);
     let MonedaDestinoOriginal = document.getElementById('destino');
     const mensajeError = document.getElementById("mensajeError");
     if(selectElement.value != "1"){
@@ -116,31 +117,31 @@ document.addEventListener('DOMContentLoaded', function() {
             switch (imagenSeleccionada) {
                 case 'USD':
                   card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
-                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  mensajeError2.style.display = "none"; // Ocultar el mensaje de error
                   break;
                 case 'EUR':
                   card.style.backgroundImage = 'url("./assets/Euro.jpg")';
-                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  mensajeError2.style.display = "none"; // Ocultar el mensaje de error  
                   break;
                 case 'JPY':
                   card.style.backgroundImage = 'url("./assets/Yen.jpg")';
-                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  mensajeError2.style.display = "none"; // Ocultar el mensaje de error 
                   break;
                   case 'GBP':
                   card.style.backgroundImage = 'url("./assets/Libra.jpeg")';
-                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  mensajeError2.style.display = "none"; // Ocultar el mensaje de error
                   break;
                   case 'CAD':
                   card.style.backgroundImage = 'url("./assets/Canada.jpg")';
-                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  mensajeError2.style.display = "none"; // Ocultar el mensaje de error 
                   break;
                   case 'MXN':
                   card.style.backgroundImage = 'url("./assets/Peso.jpeg")';
-                  mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                  mensajeError2.style.display = "none"; // Ocultar el mensaje de error
                   break;
                   case '1':
                     card.style.backgroundImage = 'url("./assets/D.jpg")';
-                    mensajeError.style.display = "none"; // Ocultar el mensaje de error
+                    mensajeError2.style.display = "none"; // Ocultar el mensaje de error
                   break;
                 default:
                   card.style.backgroundImage = 'url("./assets/D.jpeg")';
@@ -184,3 +185,13 @@ function VerificarCambio(){
 }
 
 setInterval(VerificarCambio, 500);
+
+function validarInput(ID) {
+  if (ID.value.trim() === "") {
+    ID.setCustomValidity("Este campo no puede estar vacío");
+  } else {
+    ID.setCustomValidity("");
+  }
+
+  ID.reportValidity(); // Muestra el mensaje si es inválido
+}
