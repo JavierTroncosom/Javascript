@@ -105,3 +105,7 @@ h5{
     font-size: 14px;
     display: none; /* Oculto por defecto */
 }
+
+.error-select{
+    border: 2px solid red;
+}

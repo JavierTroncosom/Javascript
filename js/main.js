@@ -18,9 +18,11 @@ function ConversorDivisas() {
     const mensajeError2 = document.getElementById("mensajeError2");
     if(selectElement2.value != "1"){
       mensajeError2.style.display = "none"; // Ocultar el mensaje de error
+      selectElement2.classList.remove("error-select");  
     }
     else{
-      mensajeError2.style.display = "block"; 
+      mensajeError2.style.display = "block"; //Muestra el mensaje de error
+      selectElement2.classList.add("error-select");  
     }
     let MonedaOriginal = document.getElementById('origen');
     let MonedaDestinoOriginal = document.getElementById('destino');
@@ -47,7 +49,6 @@ function ConversorDivisas() {
         MonedaDestinoOriginal.value=cantidadConvertida;
     }
     else{
-      alert("Por favor ingrese una opción valida");
       mensajeError.style.display = "block"; // Mostrar el mensaje de error
     }
 }
