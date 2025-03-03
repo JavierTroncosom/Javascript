@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
       selectElement.value = localStorage.getItem("Moneda");
       }
         selectElement.addEventListener('change', function() {
-            var imagenSeleccionada = this.value;
-            var card = document.getElementById('card1')
+            let imagenSeleccionada = this.value;
+            let card = document.getElementById('card1')
             console.log(selectElement.value);
             switch (imagenSeleccionada) {
               case 'USD':
@@ -107,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (selectElement) { // 👈 Verifica que el elemento existe antes de usarlo
         selectElement.addEventListener('change', function() {
-            var imagenSeleccionada = this.value;
-            var card = document.getElementById('card')
+            let imagenSeleccionada = this.value;
+            let card = document.getElementById('card')
             console.log(selectElement.value);
             switch (imagenSeleccionada) {
                 case 'USD':
@@ -151,8 +151,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function VerificarCambio(){
   let selectElement = document.getElementById('opciones1');
-  var imagenSeleccionada = selectElement.value;
-  var card = document.getElementById('card1'); 
+  let imagenSeleccionada = selectElement.value;
+  let card = document.getElementById('card1'); 
   if (localStorage.getItem("Moneda") !== null) {
     switch (imagenSeleccionada) {
       case 'USD':
