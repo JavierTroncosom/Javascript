@@ -29,6 +29,7 @@ function ConversorDivisas() {
     const mensajeError = document.getElementById("mensajeError");
     if(selectElement.value != "1"){
         mensajeError.style.display = "none"; // Ocultar el mensaje de error
+        selectElement.classList.remove("error-select"); 
         // Solicitar el monto a convertir
         const cantidad = parseFloat(MonedaOriginal.value);
         console.log("La cantidad ingresada es "+cantidad)
@@ -50,6 +51,7 @@ function ConversorDivisas() {
     }
     else{
       mensajeError.style.display = "block"; // Mostrar el mensaje de error
+      selectElement.classList.add("error-select"); 
     }
 }
 
