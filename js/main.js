@@ -22,7 +22,8 @@ function ConversorDivisas() {
     }
     else{
       mensajeError2.style.display = "block"; //Muestra el mensaje de error
-      selectElement2.classList.add("error-select");  
+      selectElement2.classList.add("error-select");
+      Swal.fire('¡Error!', 'Ocurrió un problema inesperado.', 'error');
     }
     let MonedaOriginal = document.getElementById('origen');
     validarInput(MonedaOriginal);
@@ -47,11 +48,12 @@ function ConversorDivisas() {
         const rate = TasasdeConversion[MonedaOrigen][MonedaDestino];
         const cantidadConvertida = (cantidad * rate).toFixed(2);
         MonedaDestinoOriginal.value=cantidadConvertida;
-        Swal.fire('¡Conversión Exitosa!', 'Gracias por usar el Conversor de Divisas', 'success');
+        //Swal.fire('¡Conversión Exitosa!', 'Gracias por usar el Conversor de Divisas', 'success');
     }
     else{
+      Swal.fire('¡Error!', 'Ocurrió un problema inesperado.', 'error');
       mensajeError.style.display = "block"; // Mostrar el mensaje de error
-      selectElement.classList.add("error-select"); 
+      selectElement.classList.add("error-select");
     }
 }
 
