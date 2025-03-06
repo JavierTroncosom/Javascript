@@ -1,11 +1,11 @@
 // Tasas de cambio predefinidas
-const TasasdeConversion = {
-    USD: { USD: 1, EUR: 0.85, MXN: 17.50, JPY: 110.50, GBP: 0.74, CAD: 1.26 },
-    EUR: { USD: 1.18, EUR: 1, MXN: 20.65, JPY: 130.12, GBP: 0.86, CAD: 1.48 },
-    MXN: { USD: 0.057, EUR: 0.048, MXN: 1, JPY: 6.30, GBP: 0.042, CAD: 0.072 },
-    JPY: { USD: 0.009, EUR: 0.0077, MXN: 0.16, JPY: 1, GBP: 0.0066, CAD: 0.011 },
-    GBP: { USD: 1.36, EUR: 1.16, MXN: 23.10, JPY: 151.34, GBP: 1, CAD: 1.71 },
-    CAD: { USD: 0.79, EUR: 0.68, MXN: 14.00, JPY: 91.70, GBP: 0.58, CAD: 1 }
+const TasasdeConversion = { //Simulando un formato JSON, en este caso son datos ya predefinidos
+  "USD": { "USD": 1, "EUR": 0.85, "MXN": 17.50, "JPY": 110.50, "GBP": 0.74, "CAD": 1.26 },
+  "EUR": { "USD": 1.18, "EUR": 1, "MXN": 20.65, "JPY": 130.12, "GBP": 0.86, "CAD": 1.48 },
+  "MXN": { "USD": 0.057, "EUR": 0.048, "MXN": 1, "JPY": 6.30, "GBP": 0.042, "CAD": 0.072 },
+  "JPY": { "USD": 0.009, "EUR": 0.0077, "MXN": 0.16, "JPY": 1, "GBP": 0.0066, "CAD": 0.011 },
+  "GBP": { "USD": 1.36, "EUR": 1.16, "MXN": 23.10, "JPY": 151.34, "GBP": 1, "CAD": 1.71 },
+  "CAD": { "USD": 0.79, "EUR": 0.68, "MXN": 14.00, "JPY": 91.70, "GBP": 0.58, "CAD": 1 }
 };
 //USD: Dólar estanoudinense
 //EUR: Euro
@@ -33,7 +33,6 @@ function ConversorDivisas() {
         selectElement.classList.remove("error-select"); 
         // Solicitar el monto a convertir
         const cantidad = parseFloat(MonedaOriginal.value);
-        console.log("La cantidad ingresada es "+cantidad)
         // Solicitar la moneda de origen
         const MonedaOrigen = selectElement.value;
 
@@ -47,8 +46,8 @@ function ConversorDivisas() {
         // Calcular el resultado de la conversión
         const rate = TasasdeConversion[MonedaOrigen][MonedaDestino];
         const cantidadConvertida = (cantidad * rate).toFixed(2);
-        console.log("La cantidad ya convertida es " + cantidadConvertida);
         MonedaDestinoOriginal.value=cantidadConvertida;
+        Swal.fire('¡Conversión Exitosa!', 'Gracias por usar el Conversor de Divisas', 'success');
     }
     else{
       mensajeError.style.display = "block"; // Mostrar el mensaje de error
@@ -67,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         selectElement.addEventListener('change', function() {
             let imagenSeleccionada = this.value;
             let card = document.getElementById('card1')
-            console.log(selectElement.value);
             switch (imagenSeleccionada) {
               case 'USD':
                 card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
@@ -113,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
         selectElement.addEventListener('change', function() {
             let imagenSeleccionada = this.value;
             let card = document.getElementById('card')
-            console.log(selectElement.value);
             switch (imagenSeleccionada) {
                 case 'USD':
                   card.style.backgroundImage = 'url("./assets/Dolar.jpg")';
