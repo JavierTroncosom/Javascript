@@ -48,7 +48,7 @@ function ConversorDivisas() {
         const rate = TasasdeConversion[MonedaOrigen][MonedaDestino];
         const cantidadConvertida = (cantidad * rate).toFixed(2);
         MonedaDestinoOriginal.value=cantidadConvertida;
-        //Swal.fire('¡Conversión Exitosa!', 'Gracias por usar el Conversor de Divisas', 'success');
+        Swal.fire('¡Conversión Exitosa!', 'Gracias por usar el Conversor de Divisas', 'success');
     }
     else{
       Swal.fire('¡Error!', 'Ocurrió un problema inesperado.', 'error');
